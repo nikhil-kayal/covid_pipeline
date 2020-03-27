@@ -29,7 +29,7 @@ class County(object):
     def get_confirmed_cases(self):
         content = requests.get(self.confirmed_case_url).content
         confirmed_cases = pd.read_csv(io.StringIO(content.decode("utf-8"))).dropna(how='any', axis=1)
-        confirmed_cases['3/20/2020'].loc[(confirmed_cases['3/20/2020'] == '5,151')] = 5151.0
+        # confirmed_cases['3/20/2020'].loc[(confirmed_cases['3/20/2020'] == '5,151')] = 5151.0
         return self.read_county_population(confirmed_cases)
 
     def get_death_cases(self):
