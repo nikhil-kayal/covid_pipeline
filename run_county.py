@@ -32,11 +32,11 @@ if __name__ == "__main__":
     county_confirmed_cases_url = config.get("URLS", "confirmed_cases")
     county_deaths_url = config.get("URLS", "death_cases")
     testing_cases_url = config.get("URLS", "testing_cases")
-    main()
-    # schedule.every().day.at("09:00").do(main)
-    # while 1:
-    #     schedule.run_pending()
-    #     time.sleep(1)
+    # main()
+    schedule.every().day.at("09:00").do(main)
+    while 1:
+        schedule.run_pending()
+        time.sleep(1)
 
 
 
