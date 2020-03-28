@@ -34,7 +34,7 @@ class County(object):
 
     def get_death_cases(self):
         content = requests.get(self.death_case_url).content
-        death_cases = pd.read_csv(io.StringIO(content.decode("utf-8")))
+        death_cases = pd.read_csv(io.StringIO(content.decode("utf-8"))).dropna(how='any', axis=1)
         return self.read_county_population(death_cases)
 
     def get_rolling_average(self, df):
